@@ -132,7 +132,7 @@
         onclick="window.open('https://www.instagram.com/chetporter/?hl=en', '_blank')"
         style="padding: 10px 20px; font-size: 16px; cursor: pointer"
       >
-        View Chet Porter's Instagram Profile NOW!!!!!
+        View Chet Porter's LATEST MEME POST NOW!!!!!
       </button>
     </div>
 
@@ -163,6 +163,10 @@
 
       const instagramLink = "https://www.instagram.com/chetporter/?hl=en";
 
+      const TOTAL_POPUPS = 15;
+      let popupsCreated = 0;
+      let activePopups = 0;
+
       function disableInteractions() {
         document.querySelectorAll("iframe, button").forEach((el) => {
           el.classList.add("disabled");
@@ -177,6 +181,9 @@
 
       // Create annoying pop-ups
       function createPopup() {
+        popupsCreated++;
+        activePopups++;
+
         const popup = document.createElement("div");
         popup.className = "pop-up";
 
@@ -220,12 +227,16 @@
           }
         }, 1000);
 
-        // Attach close handler
+        // Modify close handler
         popup.querySelector(".close-btn").onclick = function (e) {
           e.preventDefault();
           clearInterval(countdown);
           popup.remove();
-          if (document.querySelectorAll(".pop-up").length === 0) {
+          activePopups--;
+
+          // Only enable interactions if ALL popups have been created AND cleared
+          if (activePopups === 0 && popupsCreated >= TOTAL_POPUPS) {
+            enableInteractions();
             displayLinks();
           }
         };
@@ -233,7 +244,7 @@
 
       // Display multiple popups
       function displayPopups(num) {
-        for (let i = 0; i < num; i++) {
+        for (let i = 0; i < num && popupsCreated < TOTAL_POPUPS; i++) {
           setTimeout(createPopup, i * 1000);
         }
       }
@@ -258,16 +269,15 @@
 
       // Display streaming links once all pop-ups are closed
       function displayLinks() {
-        enableInteractions();
         const linkContainer = document.createElement("div");
         linkContainer.innerHTML = `
-                <h2>Stream EYES Here NOW!!!!!!!!!</h2>
-                <p><a href="${streamLinks.apple}" target="_blank">Apple Music</a></p>
-                <p><a href="${streamLinks.spotify}" target="_blank">Spotify</a></p>
-                <p><a href="${streamLinks.youtube}" target="_blank">YouTube Music</a></p>
-                <h2>Final Step for Good Karma:</h2>
-                <p><a href="${instagramLink}" target="_blank">Follow Chet Porter's Instagram Profile</a> or risk getting hit by a blind old lady who CLEARLY should not have been driving</p>
-            `;
+          <h2>Stream EYES Here NOW!!!!!!!!!</h2>
+          <p><a href="${streamLinks.apple}" target="_blank">Apple Music</a></p>
+          <p><a href="${streamLinks.spotify}" target="_blank">Spotify</a></p>
+          <p><a href="${streamLinks.youtube}" target="_blank">YouTube Music</a></p>
+          <h2>Final Step for Good Karma:</h2>
+          <p><a href="${instagramLink}" target="_blank">Follow Chet Porter's Instagram Profile</a> or risk getting hit by a blind old lady who CLEARLY should not have been driving</p>
+        `;
         document.body.appendChild(linkContainer);
         displayBotMessage();
       }
@@ -275,7 +285,7 @@
       // Start the chaos
       disableInteractions();
       displayBotMessage();
-      displayPopups(15);
+      displayPopups(TOTAL_POPUPS);
     </script>
   </body>
 </html>
