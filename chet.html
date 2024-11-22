@@ -11,6 +11,10 @@
         background-color: #111;
         color: white;
         overflow: hidden;
+        user-select: none;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
       }
       .pop-up {
         position: absolute;
@@ -76,12 +80,21 @@
         border: 2px solid #0f0;
         margin-top: 20px;
       }
+      .shake-button {
+        animation: shake 0.5s;
+        animation-iteration-count: infinite;
+      }
+      .disabled {
+        pointer-events: none;
+        opacity: 0.5;
+      }
     </style>
   </head>
   <body>
     <h1>SUPER REAL CHET PORTER INSTAGRAM BOT !!!!!!</h1>
 
     <iframe
+      class="shake-button"
       src="https://open.spotify.com/embed/album/6axDBKZMsJU1FrjyjcixjO"
       width="300"
       height="80"
@@ -89,6 +102,7 @@
     ></iframe>
 
     <iframe
+      class="shake-button"
       allow="autoplay *; encrypted-media *;"
       height="150"
       style="
@@ -103,6 +117,7 @@
     ></iframe>
 
     <iframe
+      class="shake-button"
       width="300"
       height="80"
       src="https://www.youtube.com/embed/videoseries?list=OLAK5uy_m8ashl7xYZaw1EjUBabLDBFvvBLzKpRQI"
@@ -113,6 +128,7 @@
 
     <div style="margin-top: 20px">
       <button
+        class="shake-button"
         onclick="window.open('https://www.instagram.com/chetporter/?hl=en', '_blank')"
         style="padding: 10px 20px; font-size: 16px; cursor: pointer"
       >
@@ -146,6 +162,18 @@
       };
 
       const instagramLink = "https://www.instagram.com/chetporter/?hl=en";
+
+      function disableInteractions() {
+        document.querySelectorAll("iframe, button").forEach((el) => {
+          el.classList.add("disabled");
+        });
+      }
+
+      function enableInteractions() {
+        document.querySelectorAll("iframe, button").forEach((el) => {
+          el.classList.remove("disabled");
+        });
+      }
 
       // Create annoying pop-ups
       function createPopup() {
@@ -201,13 +229,6 @@
             displayLinks();
           }
         };
-
-        // Remove popup after a few seconds
-        setTimeout(() => {
-          if (popup.parentNode) {
-            popup.remove();
-          }
-        }, 5000);
       }
 
       // Display multiple popups
@@ -237,6 +258,7 @@
 
       // Display streaming links once all pop-ups are closed
       function displayLinks() {
+        enableInteractions();
         const linkContainer = document.createElement("div");
         linkContainer.innerHTML = `
                 <h2>Well Done! Now Stream Here:</h2>
@@ -251,6 +273,7 @@
       }
 
       // Start the chaos
+      disableInteractions();
       displayBotMessage();
       displayPopups(15);
     </script>
