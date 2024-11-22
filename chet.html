@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CHET PORTER INSTAGRAM BOT</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        text-align: center;
+        background-color: #111;
+        color: white;
+        overflow: hidden;
+      }
+      .pop-up {
+        position: absolute;
+        width: 300px;
+        height: 150px;
+        background-color: #222;
+        border: 2px solid #ff0000;
+        padding: 10px;
+        box-shadow: 5px 5px 20px rgba(255, 0, 0, 0.7);
+        z-index: 10;
+        animation: shake 0.5s;
+        animation-iteration-count: infinite;
+      }
+      .close-btn {
+        cursor: pointer;
+        color: red;
+        font-weight: bold;
+      }
+      iframe {
+        margin-top: 20px;
+        border: none;
+      }
+      @keyframes shake {
+        0% {
+          transform: translate(1px, 1px) rotate(0deg);
+        }
+        10% {
+          transform: translate(-1px, -2px) rotate(-1deg);
+        }
+        20% {
+          transform: translate(-3px, 0px) rotate(1deg);
+        }
+        30% {
+          transform: translate(3px, 2px) rotate(0deg);
+        }
+        40% {
+          transform: translate(1px, -1px) rotate(1deg);
+        }
+        50% {
+          transform: translate(-1px, 2px) rotate(-1deg);
+        }
+        60% {
+          transform: translate(-3px, 1px) rotate(0deg);
+        }
+        70% {
+          transform: translate(3px, 1px) rotate(-1deg);
+        }
+        80% {
+          transform: translate(-1px, -1px) rotate(1deg);
+        }
+        90% {
+          transform: translate(1px, 2px) rotate(0deg);
+        }
+        100% {
+          transform: translate(1px, -2px) rotate(-1deg);
+        }
+      }
+      .bot-message {
+        background-color: #000;
+        color: #0f0;
+        padding: 15px;
+        font-family: "Courier New", Courier, monospace;
+        border: 2px solid #0f0;
+        margin-top: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>SUPER REAL CHET PORTER INSTAGRAM BOT !!!!!!</h1>
+
+    <iframe
+      src="https://open.spotify.com/embed/album/6axDBKZMsJU1FrjyjcixjO"
+      width="300"
+      height="80"
+      allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+    ></iframe>
+
+    <iframe
+      allow="autoplay *; encrypted-media *;"
+      height="150"
+      style="
+        width: 100%;
+        max-width: 300px;
+        overflow: hidden;
+        margin-top: 20px;
+        background: transparent;
+      "
+      sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-storage-access-by-user-activation allow-top-navigation-by-user-activation"
+      src="https://embed.music.apple.com/us/album/everything-youve-ever-seen/1752016256"
+    ></iframe>
+
+    <iframe
+      width="300"
+      height="80"
+      src="https://www.youtube.com/embed/videoseries?list=OLAK5uy_m8ashl7xYZaw1EjUBabLDBFvvBLzKpRQI"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+      allowfullscreen
+      style="margin-top: 20px"
+    ></iframe>
+
+    <div style="margin-top: 20px">
+      <button
+        onclick="window.open('https://www.instagram.com/chetporter/?hl=en', '_blank')"
+        style="padding: 10px 20px; font-size: 16px; cursor: pointer"
+      >
+        View Chet Porter's Instagram Profile NOW!!!!!
+      </button>
+    </div>
+
+    <div id="botMessage" class="bot-message">
+      Sending 10,000 bots to follow and like Chet Porter's latest MEME post...
+      <br />
+      <div
+        id="botProgressBar"
+        style="background: #333; width: 100%; height: 20px; margin-top: 10px"
+      >
+        <div
+          id="botProgress"
+          style="background: #0f0; width: 0%; height: 100%"
+        ></div>
+      </div>
+      <br /><span id="botCount"></span>
+    </div>
+
+    <script>
+      const streamLinks = {
+        apple:
+          "https://music.apple.com/us/album/everything-youve-ever-seen/1752016256",
+        spotify:
+          "https://open.spotify.com/album/6axDBKZMsJU1FrjyjcixjO?autoplay=true",
+        youtube:
+          "https://music.youtube.com/playlist?list=OLAK5uy_m8ashl7xYZaw1EjUBabLDBFvvBLzKpRQI",
+      };
+
+      const instagramLink = "https://www.instagram.com/chetporter/?hl=en";
+
+      // Create annoying pop-ups
+      function createPopup() {
+        const popup = document.createElement("div");
+        popup.className = "pop-up";
+
+        // Array of threatening messages
+        const messages = [
+          "🚨 CRITICAL SYSTEM WARNING! 🚨<br>Malicious activity detected: Your device will be encrypted unless you stream 'Eyes' in the next 60 seconds!",
+          "☠️ VIRUS ALERT! ☠️<br>Your system has been compromised! Stream 'Eyes' immediately to prevent data loss!",
+          "⚠️ SECURITY BREACH DETECTED! ⚠️<br>Multiple threats found! Quick-fix solution: Stream Chet Porter's new album NOW!",
+          "🔓 FIREWALL BREACH! 🔓<br>Unknown entities accessing your system... Stream 'Eyes' to activate emergency protection!",
+          "⚡ SYSTEM MELTDOWN IMMINENT! ⚡<br>Critical error #4789: Insufficient Chet Porter streams detected!",
+        ];
+
+        popup.innerHTML = `
+          <div style="color: #ff0000; font-weight: bold; font-size: 14px; text-transform: uppercase; margin-bottom: 10px;">
+            ${messages[Math.floor(Math.random() * messages.length)]}
+          </div>
+          <div style="font-size: 12px; color: #ff6b6b; margin: 10px 0;">
+            Time remaining: <span style="color: #ff0000; font-weight: bold;">59</span> seconds
+          </div>
+          <div style="font-size: 11px; color: #ffaaaa; margin-top: 5px;">
+            ⚠️ DO NOT CLOSE THIS WINDOW OR YOUR FILES MAY BE PERMANENTLY DAMAGED! ⚠️
+          </div>
+          <a href="#" class="close-btn" style="position: absolute; bottom: 10px; right: 10px; background: #ff0000; padding: 5px 10px; text-decoration: none; border-radius: 3px; text-shadow: 1px 1px 1px #000;">[EMERGENCY OVERRIDE]</a>
+        `;
+
+        document.body.appendChild(popup);
+
+        // Set random position on the page
+        popup.style.top = Math.random() * (window.innerHeight - 150) + "px";
+        popup.style.left = Math.random() * (window.innerWidth - 300) + "px";
+
+        // Add countdown effect
+        let timeLeft = 59;
+        const timeSpan = popup.querySelector("span");
+        const countdown = setInterval(() => {
+          timeLeft--;
+          if (timeLeft >= 0) {
+            timeSpan.textContent = timeLeft;
+          } else {
+            clearInterval(countdown);
+          }
+        }, 1000);
+
+        // Attach close handler
+        popup.querySelector(".close-btn").onclick = function (e) {
+          e.preventDefault();
+          clearInterval(countdown);
+          popup.remove();
+          if (document.querySelectorAll(".pop-up").length === 0) {
+            displayLinks();
+          }
+        };
+
+        // Remove popup after a few seconds
+        setTimeout(() => {
+          if (popup.parentNode) {
+            popup.remove();
+          }
+        }, 5000);
+      }
+
+      // Display multiple popups
+      function displayPopups(num) {
+        for (let i = 0; i < num; i++) {
+          setTimeout(createPopup, i * 1000);
+        }
+      }
+
+      // Display fake bot message
+      function displayBotMessage() {
+        const botMessage = document.getElementById("botMessage");
+        botMessage.style.display = "block";
+        let botCount = 0;
+        const botCounter = document.getElementById("botCount");
+        const botInterval = setInterval(() => {
+          botCount += Math.floor(Math.random() * 15) + 10;
+          botCounter.textContent = `Bots sent: ${botCount.toLocaleString()}`;
+          const progress = Math.min((botCount / 10000) * 100, 100);
+          document.getElementById("botProgress").style.width = progress + "%";
+          if (botCount >= 10000) {
+            botCounter.textContent = `Bots sent: 10,000 (Mission Complete)`;
+            clearInterval(botInterval);
+          }
+        }, 50);
+      }
+
+      // Display streaming links once all pop-ups are closed
+      function displayLinks() {
+        const linkContainer = document.createElement("div");
+        linkContainer.innerHTML = `
+                <h2>Well Done! Now Stream Here:</h2>
+                <p><a href="${streamLinks.apple}" target="_blank">Apple Music</a></p>
+                <p><a href="${streamLinks.spotify}" target="_blank">Spotify</a></p>
+                <p><a href="${streamLinks.youtube}" target="_blank">YouTube Music</a></p>
+                <h2>Final Step for Good Karma:</h2>
+                <p><a href="${instagramLink}" target="_blank">Follow Chet Porter's Instagram Profile</a> or risk bad karma for 10 years!</p>
+            `;
+        document.body.appendChild(linkContainer);
+        displayBotMessage();
+      }
+
+      // Start the chaos
+      displayBotMessage();
+      displayPopups(15);
+    </script>
+  </body>
+</html>
